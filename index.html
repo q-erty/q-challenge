@@ -119,6 +119,40 @@
       padding: 0.5rem 3rem;
       margin: auto;
     }
+    button {
+      display: inline-block;
+      position: relative;
+    }
+    button:before {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 86%;
+      position: absolute;
+      top: 7%;
+      left: 0%;
+
+      opacity: 0;
+      background: white;
+      box-shadow: 0 0 15px 3px white;
+      transform: skewX(-20deg);
+    }
+    button:hover:before {
+      animation: shine 0.5s 0s linear;
+    }
+    @keyframes shine {
+      from {
+        opacity: 0;
+        left: 0%;
+      }
+      50% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+        left: 100%;
+      }
+    }
   </style>
 </head>
 <body>
