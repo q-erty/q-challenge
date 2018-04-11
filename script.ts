@@ -14,6 +14,7 @@ const docResultWaiting: HTMLDivElement = document.getElementById('resultWaiting'
 const docAll: HTMLDivElement = document.getElementById('all') as HTMLDivElement
 const docWon: HTMLDivElement = document.getElementById('won') as HTMLDivElement
 const docRestart: HTMLButtonElement = document.getElementById('restart') as HTMLButtonElement
+const docResultOutcome: HTMLDivElement = document.getElementById('resultOutcome') as HTMLDivElement
 
 let LETTERS: string[]
 let NUMBERS: number[]
@@ -224,11 +225,12 @@ function handleKeyPress(evt: KeyboardEvent) {
 
 function drawOutcomes() {
     docTimer.innerHTML = outcomes.join('&nbsp;&nbsp;')
+    docResultOutcome.innerHTML = outcomes.join('&nbsp;&nbsp;')
 }
 
 function startGame() {
     levels = createLevels()
-    outcomes = levels.map(() => '❓')
+    outcomes = ['❓', '❓', '❓', '❓', '❓']
     currentLevel = levels[currentLevelNumber]
     drawOutcomes()
     displayLevel()
@@ -262,6 +264,7 @@ function nextLevel() {
 function youWin() {
     docAll.style.display = 'none'
     docWon.style.display = 'block'
+    drawOutcomes()
 }
 
 function restart() {
@@ -287,6 +290,8 @@ function attemptSubmit(): void {
         outcomes[currentLevelNumber - 1] = bad
         docHint.style.display = 'block'
         docHint.innerHTML = `HINT: ${currentLevel.hint}`
+    } else {
+        outcomes[currentLevelNumber - 1] = bad
     }
     drawOutcomes()
 }
