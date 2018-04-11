@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q Challenge</title>
+  <style>
+    body {
+      background-color: #2B3A42;
+      color: #114;
+      font-family: sans-serif;
+      font-size: 1.5rem;
+      padding: 2rem;
+    }
+    code {
+      font-family: "Consolas", monospace;
+      background-color: #85A0A3;
+      padding: 0.25rem;
+      color: #EFEFEF;
+    }
+    .panel {
+      background-color: #EFEFEF;
+      padding: 1rem;
+      box-shadow: #2B3A42 2px 2px 2px;
+    }
+    .pre {
+      white-space: pre-wrap;
+      font-family: "Consolas", monospace;
+    }
+    button {
+      padding: 0.5em 2.5rem;
+      background-color: #FF530D;
+      box-shadow: #2B3A42 2px 2px 2px;
+      text-align: center;
+      color: #EFEFEF;
+      cursor: pointer;
+      float: left;
+      border-radius: 3px;
+      font-size: 2rem;
+    }
+    .btnyay {
+      background-color: #15A356;
+    }
+    .btn:hover{
+      color: white;
+    }
+    .btn:active {
+      box-shadow: none;
+    }
+    .btnyay:disabled {
+      background-color: #CCC;
+    }
+    #all {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-areas:
+      "str qst res"
+      "str ans res"
+      "... btn ..."
+      "... tim ...";
+      grid-template-columns: 30% auto 30%;
+    }
+    #start {
+      margin: auto;
+      width: 200px;
+    }
+    #startBox {
+      display: grid;
+      height: 500px;
+    }
+    #question {
+      grid-area: qst;
+      font-size: 2rem;
+      text-align: center;
+      padding: 3rem;
+    }
+    #structure {
+      grid-area: str;
+    }
+    #answerBox {
+      grid-area: ans;
+      display: grid;
+    }
+    #answer {
+      margin: auto;
+      font-size: 2rem;
+      font-family: "Consolas", monospace;
+    }
+    #timer {
+      grid-area: tim;
+      text-align: center;
+    }
+    #buttonBox {
+      grid-area: btn;
+      display: grid;
+    }
+    #nextLevel {
+      grid-area: nxt;
+    }
+    #submit {
+      margin-right: 1rem;
+      grid-column: 1;
+      grid-row: 1;
+    }
+    #nextLevel {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    #resultBox {
+      display: grid;
+      grid-area: res;
+    }
+    #resultWaiting {
+      background-color: #2B3A42;
+      box-shadow: #85A0A3 2px 2px 2px;
+      color: #EFEFEF;
+      font-family: sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      padding: 0.5rem 3rem;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="startBox" class="panel">
+    <button id="start">Start Game</button>
+  </div>
+  <div id="won" class="panel" style="display: none">
+      <h1>YOU WON</h1>
+      <button id="restart">Restart Game</button>
+      <div style="clear: both"></div>
+  </div>
+  <div id="all" style="display:none">
+    <div id="structure" class="pre panel"></div>
+    <div id="question" class="panel"></div>
+    <div id="answerBox" class="panel">
+      <input type="text" id="answer" />
+    </div>
+    <div id="resultBox" class="panel">
+      <div id="resultWaiting">Waiting for evaluation</div>
+      <div id="result" class="pre"></div>
+    </div>
+    <div id="timer" class="panel"></div>
+    <div id="hint" class="panel"></div>
+  <div id="buttonBox" class="panel">
+    <button id="submit">Check Answer</button>
+    <button id="nextLevel" class="btnyay">Next Level</button>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
